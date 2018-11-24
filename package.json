@@ -1,0 +1,39 @@
+{
+  "name": "multer-drive",
+  "version": "1.0.0",
+  "description": "An Express.js Multer middleware Storage Engine for Google Drive.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/omardoma/multer-drive.git"
+  },
+  "keywords": [
+    "Express.js",
+    "Multer",
+    "Google-Drive",
+    "Drive",
+    "Node.js",
+    "File-Upload",
+    "Upload"
+  ],
+  "author": "Omar Doma",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/omardoma/multer-drive/issues"
+  },
+  "homepage": "https://github.com/omardoma/multer-drive#readme",
+  "dependencies": {
+    "googleapis": "^35.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.9.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-config-prettier": "^3.3.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-prettier": "^3.0.0",
+    "prettier": "^1.15.2"
+  }
+}
