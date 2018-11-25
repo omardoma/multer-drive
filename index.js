@@ -21,8 +21,8 @@ class DriveStorage {
           body,
         },
       })
-      .then(({ id: googleId }) => cb(null, {
-        googleId,
+      .then(({ data }) => cb(null, {
+        googleId: data.id,
       }),
       )
       .catch(err => cb(err, null));
