@@ -11,26 +11,17 @@ class DriveStorage {
     cb,
   ) {
     this.drive.files
-      .create(
-        {
-          resource: {
-            name,
-            mimeType,
-          },
-          media: {
-            mimeType,
-            body,
-          },
+      .create({
+        resource: {
+          name,
+          mimeType,
         },
-        {
-          // Use the `onUploadProgress` event from Axios to track the
-          // number of bytes uploaded to this point.
-          onUploadProgress: (event) => {
-            // Do something later on
-          },
+        media: {
+          mimeType,
+          body,
         },
-      )
-      .then(({ googleId }) => cb(null, {
+      })
+      .then(({ id: googleId }) => cb(null, {
         googleId,
       }),
       )
