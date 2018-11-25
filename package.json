@@ -1,6 +1,6 @@
 {
   "name": "multer-drive",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "An Express.js Multer middleware Storage Engine for Google Drive.",
   "main": "index.js",
   "scripts": {
