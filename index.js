@@ -2,7 +2,7 @@ const { google } = require('googleapis');
 
 class DriveStorage {
   constructor(opts) {
-    this.drive = google.drive(Object.assign({ version: 'v3' }, opts));
+    this.drive = google.drive(Object.assign(opts, { version: 'v3' }));
   }
 
   _handleFile(
@@ -11,19 +11,24 @@ class DriveStorage {
     cb,
   ) {
     this.drive.files
-      .create({
-        resource: {
-          name,
-          mimeType,
+      .create(
+        {
+          resource: {
+            name,
+            mimeType,
+          },
+          media: {
+            mimeType,
+            body,
+          },
         },
-        media: {
-          mimeType,
-          body,
-        },
-      })
-      .then(({ data }) => cb(null, {
-        googleId: data.id,
-      }),
+        // Workaround axios' issue of streams incorrect backpressuring, issue: https://github.com/googleapis/google-api-nodejs-client/issues/1107
+        { maxRedirects: 0 },
+      )
+      .then(({ data: { id: googleId } }) =>
+        cb(null, {
+          googleId,
+        }),
       )
       .catch(err => cb(err, null));
   }
